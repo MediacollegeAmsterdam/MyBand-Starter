@@ -1,7 +1,9 @@
 <?php
 
-function dbConnect($config)
+function dbConnect()
 {
+
+    $config = require __DIR__ . '/config.php';
 
     try {
         $dsn = 'mysql:host=' . $config['DB_HOST'] . ';dbname=' . $config['DB_NAME'];
