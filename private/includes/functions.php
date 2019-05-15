@@ -20,3 +20,44 @@ function dbConnect()
     }
 
 }
+
+// Interne functie om de juiste URL vanaf localhost te bepalen
+// Voor mensen die de website in een subfolder hebben staan
+function base_url()
+{
+    global $CONFIG;
+
+
+    // base directory
+    $public_dir = preg_replace("!${_SERVER['SCRIPT_NAME']}$!", '', $_SERVER['SCRIPT_FILENAME']);
+
+    // server protocol
+    $protocol = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+
+    // domain name
+    $domain = $_SERVER['SERVER_NAME'];
+
+    // base url
+    $base_url = preg_replace("!^${public_dir}!", '', $CONFIG['WEBROOT']);
+
+    // server port
+    $port = $_SERVER['SERVER_PORT'];
+    $disp_port = (($protocol === 'http' && $port === 80) || ($protocol === 'https' && $port === 443)) ? '' : ":$port";
+
+    // put em all together to get the complete base URL
+    $url = "${protocol}://${domain}${disp_port}${base_url}";
+
+    return $url;
+}
+
+/**
+ * Geeft de juiste URL terug voor het opgegeven path
+ * Bijvoorbeeld voor de homepage: echo url('/');
+ *
+ * @param $path
+ * @return string
+ */
+function url($path)
+{
+    return base_url() . $path;
+}

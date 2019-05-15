@@ -1,4 +1,7 @@
 <?php
+require_once $CONFIG['PRIVATE'] . '/includes/functions.php';
+require_once $CONFIG['PRIVATE'] . '/models/model.php';
+
 /**
  * Onderstaande code zorgt ervoor dat als we in onze code een controller willen gebruiken bijv:
  *

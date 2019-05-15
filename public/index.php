@@ -62,9 +62,9 @@ $router->map( 'GET', '/onze-huisjes', 'FacilitiesController#housesOverview', 'hu
 
 $router->map( 'GET', '/over-ons', 'PageController#aboutUs', 'over-ons' );
 
-$router->map( 'GET', '/voorbeeld', function () {
-	echo 'Zo kun je ook een route afhandelen door een inline functie te gebruiken, maar dat wordt al snel rommelig (deze mag je dus weer weghalen of laten staan als voorbeeld';
-} );
+// Ajax Voorbeeld
+$router->map( 'GET', '/ajax-voorbeeld', 'AjaxController#ajaxPage', 'ajax-example');
+$router->map( 'GET', '/ajax-search', 'AjaxController#ajaxSearch', 'ajax-search');
 
 // Daarna vragen we $router of de huidige URL getmatcht kan worden.
 $match = $router->match();
