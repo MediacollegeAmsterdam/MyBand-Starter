@@ -12,7 +12,19 @@ class EventsController {
 
 	function overview(){
 
-		echo 'Agenda overzichts pagina';
+
+		// Haal alle evenementen op uit de "model" laag.
+		$events = getAllEvents();
+
+		// Haal OOK de huisjes op voor in de sidebar
+		$houses = getAllHouses();
+
+		$template_engine = get_template_engine();
+
+		echo $template_engine->render('evenementen', [
+			'events' => $events,
+			'houses' => $houses
+		]);
 
 	}
 

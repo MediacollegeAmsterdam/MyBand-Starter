@@ -59,6 +59,7 @@ $router->map( 'GET', '/', 'HomeController#homepage', 'home' );
 $router->map( 'GET', '/evenementen', 'EventsController#overview', 'agenda-overzicht' );
 
 $router->map( 'GET', '/onze-huisjes', 'FacilitiesController#housesOverview', 'huisjes' );
+$router->map( 'GET', '/onze-huisjes/huis/[i:id]', 'FacilitiesController#showHouse', 'toon-huis' );
 
 $router->map( 'GET', '/over-ons', 'PageController#aboutUs', 'over-ons' );
 

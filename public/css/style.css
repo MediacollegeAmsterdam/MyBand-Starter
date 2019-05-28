@@ -10,10 +10,18 @@ header, main, footer {
     padding: 20px;
 }
 
+header {
+    border-bottom: 1px solid #cdcdcd;
+}
+
 footer {
     padding-top: 5px;
     border-top: 1px solid #888;
     color: #888;
+}
+
+.page-title {
+    font-size: 2rem;
 }
 
 nav ul {
@@ -36,4 +44,109 @@ nav ul li a {
 nav ul li a:hover {
     color: #ffffff;
     background-color: #9a0000;
+}
+
+main img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 900px) {
+    .houses {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 5%;
+    }
+}
+
+/* Huisjes */
+.house {
+    border-top: 1px solid #888;
+    padding-top: 20px;
+}
+
+.house h1 {
+    font-size: 1.5rem;
+}
+
+.house img {
+    max-width: 100%;
+    height: auto;
+}
+
+.house p {
+    margin: 10px 0;
+}
+
+/* Evenementen */
+
+@media screen and (min-device-width: 500px) {
+    .events-wrapper {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-column-gap: 20px;
+    }
+}
+
+.event {
+    background-color: #ffdede;
+    list-style: none;
+    margin-bottom: 20px;
+    border-radius: 0 20px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.event li {
+    padding: 10px;
+}
+
+@media screen and (min-device-width: 500px) {
+    .event {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .event:last-child {
+        grid-row-gap: 0;
+    }
+}
+
+.event .datum {
+    background: #f98080;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.event h1 {
+    font-size: 1.25rem;
+}
+
+.events-wrapper .sidebar {
+    padding: 10px;
+    background: #efefef;
+    border-radius: 0 20px;
+
+}
+
+.events-wrapper .sidebar h2 {
+    font-size: 1rem;
+}
+
+.events-wrapper .sidebar a {
+    display: block;
+}
+
+/* Huis detail pagina */
+@media screen and (min-device-width: 500px) {
+    .house-details {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+.house-details p {
+    padding: 20px;
+    background-color: #f3f3f3;
+    margin: 0;
 }

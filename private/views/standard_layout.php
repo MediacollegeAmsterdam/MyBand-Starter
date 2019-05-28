@@ -21,7 +21,7 @@
     <div class="page-wrapper">
 
         <header>
-            <h1><?php echo $this->section( 'page_title', 'Standaard pagina titel') ?></h1>
+            <h1 class="page-title"><?php echo $this->section( 'page_title', 'Standaard pagina titel') ?></h1>
         </header>
 
         <main>

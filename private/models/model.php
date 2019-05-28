@@ -31,3 +31,54 @@ function searchTitels($text)
 
     return $results;
 }
+
+function getAllHouses() {
+
+	$database = dbConnect();
+
+	// Haal alles op uit de table 'huisjes'
+	$statement = $database->query('SELECT * FROM `huisjes` ORDER BY `naam`');
+
+	$results = [];
+
+	// laat de titels op de pagina zien
+	while ($huisje = $statement->fetch(PDO::FETCH_ASSOC)) {
+		$results[] = $huisje;
+	}
+
+	return $results;
+
+}
+
+function getHouse($id){
+	$database = dbConnect();
+
+	// Haal het huisje met de opgegeven id op uit de database
+	$statement = $database->prepare('SELECT * FROM `huisjes` WHERE id = ?');
+	$data = [$id];
+	$statement->execute($data);
+
+	$huisje = $statement->fetch(PDO::FETCH_ASSOC);
+
+	return $huisje;
+}
+
+/**
+ * Haal alle agenda / evenementen
+ * @return array
+ */
+function getAllEvents(){
+	$database = dbConnect();
+
+	// Haal alles op uit de table 'huisjes'
+	$statement = $database->query('SELECT * FROM `evenementen` ORDER BY `datum` ASC');
+
+	$results = [];
+
+	// laat de titels op de pagina zien
+	while ($evenement = $statement->fetch(PDO::FETCH_ASSOC)) {
+		$results[] = $evenement;
+	}
+
+	return $results;
+}

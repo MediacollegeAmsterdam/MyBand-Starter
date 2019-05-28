@@ -12,9 +12,26 @@ class FacilitiesController {
 
 	function housesOverview() {
 
+
+		//Roep de function in het model aan om alle huisjes uit de database op te halen
+		$houses = getAllHouses();
+
 		$template_engine = get_template_engine();
 
-		echo $template_engine->render( 'onze-huisjes' );
+		echo $template_engine->render( 'onze-huisjes', [
+			'houses' => $houses
+		] );
+	}
+
+	function showHouse( $id ) {
+		//Roep de function in het model aan om alle huisjes uit de database op te halen
+		$house = getHouse( $id );
+
+		$template_engine = get_template_engine();
+
+		echo $template_engine->render( 'toon-huis', [
+			'house' => $house
+		] );
 	}
 
 }
