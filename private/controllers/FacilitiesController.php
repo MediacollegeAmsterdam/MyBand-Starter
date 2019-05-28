@@ -14,12 +14,12 @@ class FacilitiesController {
 
 
 		//Roep de function in het model aan om alle huisjes uit de database op te halen
-		$houses = getAllHouses();
+		$allHouses = getAllHouses();
 
 		$template_engine = get_template_engine();
 
 		echo $template_engine->render( 'onze-huisjes', [
-			'houses' => $houses
+			'houses' => $allHouses
 		] );
 	}
 
