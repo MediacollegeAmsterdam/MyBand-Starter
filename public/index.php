@@ -63,6 +63,12 @@ $router->map( 'GET', '/onze-huisjes/huis/[i:id]', 'FacilitiesController#showHous
 
 $router->map( 'GET', '/over-ons', 'PageController#aboutUs', 'over-ons' );
 
+// Zoeken en doorlinken naar zoekresultaat
+$router->map( 'GET', '/zoeken', 'SearchController#search', 'zoeken' );
+$router->map( 'GET', '/movie/[i:id]', 'SearchController#movieDetails', 'movie-details' );
+$router->map( 'GET', '/person/[i:id]', 'SearchController#personDetails', 'person-details' );
+
+
 // Ajax Voorbeeld
 $router->map( 'GET', '/ajax-voorbeeld', 'AjaxController#ajaxPage', 'ajax-example');
 $router->map( 'GET', '/ajax-search', 'AjaxController#ajaxSearch', 'ajax-search');
